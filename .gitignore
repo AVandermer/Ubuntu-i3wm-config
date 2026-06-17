@@ -1,0 +1,19 @@
+# General
+.DS_Store
+*.swp
+*.bak
+*~
+*.log
+*.tmp
+.cache/
+
+# Wal generated colors (cache, etc. except the main templates if needed, but typically pywal generates things on the fly)
+.config/wal/colors*.sh
+.config/wal/colors*.json
+.config/wal/colors*.css
+.config/wal/colors*.xres
+.config/wal/colors*.yml
+
+# Other potentially sensitive or temporary files
+.zsh_history
+.bash_history

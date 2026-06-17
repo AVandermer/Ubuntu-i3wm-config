@@ -8,15 +8,14 @@
 rofi_command="rofi -theme $HOME/.config/polybar/scripts/color.rasi"
 
 # Options
-shutdown="󰐥  Power Off"
+shutdown="󰐥 Power Off"
 reboot="󰜉 Reboot"
-lock="󰤁 Lock Screen"
 suspend="󰤄 Suspend"
 logout="󰿅 Logout"
 
 # Variable passed to rofi
-options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
-chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
+options="$shutdown\n$reboot\n$suspend\n$logout"
+chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 0)"
 
 
 
@@ -27,10 +26,7 @@ case $chosen in
     $reboot)
 	systemctl reboot
         ;;
-    $lock)
-        betterlockscreen -l &
-        ;;
-    $suspend)
+        $suspend)
         amixer set Master mute
 	betterlockscreen -l & 
 	sleep 0.5

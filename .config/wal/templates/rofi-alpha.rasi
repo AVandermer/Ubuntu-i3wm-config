@@ -1,0 +1,10 @@
+* {
+    /* Берем цвет фона из обоев и делаем его прозрачным на 80% */
+    bg: rgba({background.rgb}, 0.8);
+    fg: {foreground};
+    sel: {color1};
+    
+    /* Делаем так, чтобы все внутренние элементы не перекрывали фон */
+    background-color: transparent;
+    text-color: @fg;
+}

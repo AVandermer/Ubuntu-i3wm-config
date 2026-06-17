@@ -1,125 +1,90 @@
-
-# --- БАЗОВЫЕ НАСТРОЙКИ ---
 set $mod Mod4
 font pango:JetBrainsMono 8
 
-# Отключаем дефолтные заголовки окон )
 for_window [class=".*"] border none
 
-# Отступы (Gaps)
 gaps inner 10
-gaps outer 10
-gaps bottom 35
+gaps outer 5
+gaps bottom 45
 smart_gaps off
 
-# Рамки 
-# for_window [class="kitty"] border pixel 3
 client.focused          #bdae93 #bdae93 #bdae93 #bdae93 #bdae93
 client.focused_inactive #bdae93 #bdae93 #bdae93 #bdae93 #bdae93
 client.unfocused        #bdae93 #bdae93 #bdae93 #bdae93 #bdae93
 
-# --- АВТОЗАПУСК  ---
-
-# Автотайлинг
 exec_always --no-startup-id ~/.local/bin/autotiling
 
-# Клик касанием 
 exec_always --no-startup-id xinput set-prop "MSFT0001:01 04F3:31DD Touchpad" "libinput Tapping Enabled" 1
 
-# Естественный скролл 
 exec_always --no-startup-id xinput set-prop "MSFT0001:01 04F3:31DD Touchpad" "libinput Natural Scrolling Enabled" 1
 
-# Композитор для прозрачности
 exec_always --no-startup-id picom -b
 
-# Раскладка клавиатуры (переключение на Caps)
 exec --no-startup-id setxkbmap -layout us,ru,ua -option "" -option "grp:caps_toggle"
 
-# Убрать системный индикатор клавы
 exec --no-startup-id killall ibus-daemon
 
-# Установка обоев 
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/AlanWake2_DET_4K_089.jpg
 exec_always --no-startup-id wal -R
 
-# Запуск панели Polybar 
-exec_always --no-startup-id /home/avandermer/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# Сетевой апплет
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
-# --- ГОРЯЧИЕ КЛАВИШИ ---
-# Запуск терминала
 bindsym $mod+Return exec kitty
 
-# Меню приложений Rofi 
+for_window [class="kitty-popup"] floating enable
+for_window [class="kitty-popup"] resize set 1000 600
+for_window [class="kitty-popup"] border pixel 0 
+for_window [class="kitty-popup"] move scratchpad
+
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
-# Закрыть окно
+bindsym XF86Calculator exec gnome-calculator
+
 bindsym $mod+Shift+q kill
 
-# Перезагрузка конфига i3
 bindsym $mod+Shift+r restart
 
-# Выход из i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Выйти из i3?' -B 'Да' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id ~/.config/polybar/scripts/power-menu.sh
 
-# --- МУЛЬТИМЕДИА  ---
-
-# Управление звуком
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-# Яркость
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
-# Управление медиа
+bindsym XF86Mail exec --no-startup-id brightnessctl set 5%-
+bindsym XF86HomePage exec --no-startup-id brightnessctl set +5%
+
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
-#Скриншоты
 bindsym Print exec --no-startup-id flameshot gui
 
-# --- УПРАВЛЕНИЕ ОКНАМИ ---
-
-# Перемещение фокуса (стрелочки + vim-стиль)
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Перемещение самих окон
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Сплиты (горизонтальный и вертикальный)
-# Автор использовал $mod+v для буфера обмена, поэтому для вертикального сплита возьмем b
-# bindsym $mod+minus split h
-# bindsym $mod+b split v
-
-# Полноэкранный режимe
 bindsym $mod+f fullscreen toggle
 
-# Переключение режимов раскладки (стек, табы, сплит)
-# bindsym $mod+s layout stacking
-# bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# Плавающие окна
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 floating_modifier $mod
 tiling_drag modifier titlebar
 
-# --- ВОРКСПЕЙСЫ ---
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -138,7 +103,6 @@ bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 
-# --- РЕСАЙЗ ОКНО (Оставили как у автора) ---
 mode "resize" {
 
         bindsym Left resize shrink width 10 px or 10 ppt
