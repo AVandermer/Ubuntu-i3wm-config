@@ -1,6 +1,10 @@
 #  Dotfiles                                                                          
 This repository contains my personal configuration files for a Linux tiling window manager setup based on **i3wm**. The aesthetic and color palette of the entire system are fully dynamic and generated on the fly using **pywal**.                                  
-                                                                                           
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5185edc-bd50-4840-9a5b-df001570704b" />
+
+
+
  ##  Features & Setup   
  
 * **Window Manager:** [i3wm](https://i3wm.org/)                                     
