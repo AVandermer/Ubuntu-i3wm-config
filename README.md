@@ -1,11 +1,9 @@
-#  Dotfiles                                                                          
-This repository contains my personal configuration files for a Linux tiling window manager setup based on **i3wm**. The aesthetic and color palette of the entire system are fully dynamic and generated on the fly using **pywal**.                                  
+# Dotfiles
+This repository contains my personal configuration files for a Linux tiling window manager setup based on **i3wm**. The aesthetic and color palette of the entire system are fully dynamic and generated on the fly using **colorice** (a modern alternative to pywal based on Oklab color space).
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e5185edc-bd50-4840-9a5b-df001570704b" />
+![Preview](preview.png)
 
-
-
- ##  Features & Setup   
+## Features & Setup   
  
 * **Window Manager:** [i3wm](https://i3wm.org/)                                     
 * **Bar:** [Polybar](https://polybar.github.io/)    
@@ -17,32 +15,37 @@ This repository contains my personal configuration files for a Linux tiling wind
 * **Audio Visualizer:** [Cava](https://github.com/karlstav/cava)
 * **Shell:** Bash / Zsh
 
-## Pywal Integration (Dynamic Colors)                                               
+## Colorice Integration (Dynamic Colors)                                               
 
-The core feature of this rice is the **[pywal](https://github.com/dylanaraps/pywal)** integration. 
-Whenever the wallpaper changes, `pywal` automatically extracts the dominant colors and applies them system-wide.
+The core feature of this rice is the **[colorice](https://github.com/rattle99/colorice)** integration. 
+Whenever the wallpaper changes, `colorice` automatically extracts the dominant colors using the Oklab color space and applies beautiful palettes (Vibrant, Muted, Warm, Cool) system-wide.
 
-Currently, `pywal` dynamically themes:
+Currently, `colorice` dynamically themes:
 - i3 window borders
 - Polybar
 - Rofi menus
-- Kitty terminal
+- Kitty terminal (updates on-the-fly)
 - Dunst notifications
+- Cava audio visualizer
 
-###  Planned Features (TODO)                                                         
-- [ ] **Firefox Theme:** Integrate `pywal` to dynamically generate userChrome.css / Firefox colors based on the current wallpaper (e.g., using Pywalfox).
-- [ ] **Spotify Theme:** Add dynamic color support for Spotify using [Spicetify](https://spicetify.app/) and `pywal`.
+### Usage
+- **`Super + w`**: Set a random wallpaper and apply a random colorice mood (vibrant, muted, warm, or cool).
+- **`set-wallpaper /path/to/image.jpg`**: Set a specific wallpaper and choose the palette interactively via terminal.
+
+### Planned Features (TODO)                                                         
+- [ ] **Firefox Theme:** Integrate dynamic colors to generate userChrome.css / Firefox colors based on the current wallpaper.
+- [ ] **Spotify Theme:** Add dynamic color support for Spotify using [Spicetify](https://spicetify.app/).
 
 ## Installation                                                                     
 
-To use these dotfiles, clone the repository and copy/symlink the configurations to your`~/.config` directory.
- ```bash
- # Clone the repository
- git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
+To use these dotfiles, clone the repository and run the installation script.
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
 
- # Copy the configs
- cp -r ~/dotfiles/.config/* ~/.config/
- cp ~/dotfiles/.bashrc ~/
- cp ~/dotfiles/.zshrc ~/
+# Run the installer
+cd ~/dotfiles
+chmod +x install.sh
+./install.sh
 ```
-│ Warning: Make sure to backup your existing configurations before replacing them!
+> Warning: Make sure to backup your existing configurations before replacing them!
