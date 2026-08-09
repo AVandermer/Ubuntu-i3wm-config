@@ -134,3 +134,8 @@ hook = "pgrep cava >/dev/null && pkill -USR2 cava || true"
 name = "rofi"
 input = "rofi-colors.rasi"
 output = "~/.config/rofi/colorice-colors.rasi"
+
+[[templates]]
+name = "power-menu"
+input = "power-menu.rasi"
+output = "~/.config/polybar/scripts/color.rasi"

@@ -1,0 +1,51 @@
+/* Powermenu theme — matching regular rofi but with unique accent */
+* {{
+    /* Берем цвет фона из обоев и делаем его прозрачным на 80% */
+    background: {background}CC;
+    foreground: {foreground};
+    /* Для меню пуска используем другой акцент (color1/color5), чтобы отличалось от основного меню */
+    accent: {color1};
+    
+    background-color: transparent;
+    text-color: @foreground;
+}}
+
+window {{
+    background-color: @background;
+    border-radius: 12px;
+    padding: 10px;
+    border: 0px;
+    width: 350px;
+}}
+
+mainbox, inputbar, listview, element, prompt, entry {{
+    background-color: transparent;
+}}
+
+listview {{
+    lines: 4;
+    columns: 1;
+    spacing: 5px;
+}}
+
+element {{
+    padding: 12px 15px;
+    border-radius: 8px;
+}}
+
+element selected {{
+    background-color: @accent;
+    text-color: @background;
+}}
+
+/* Убираем лишние элементы, если они есть */
+inputbar {{
+    children: [ prompt, entry ];
+    padding: 0px 0px 10px 0px;
+}}
+prompt {{
+    enabled: false;
+}}
+entry {{
+    enabled: false;
+}}
