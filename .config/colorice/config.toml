@@ -1,0 +1,136 @@
+# Colorice configuration
+# Uncomment and edit the templates you want to use.
+# Run `colorice --init` to install default template files.
+# Run `colorice <image> --apply` to render templates and run hooks.
+
+# ── Terminal emulators ────────────────────────────────────────────────────────
+
+[[templates]]
+name = "kitty"
+input = "kitty.conf"
+output = "~/.config/kitty/current-theme.conf"
+hook = "killall -USR1 kitty; kitty @ --to unix:/tmp/kitty set-colors -a -c ~/.config/kitty/current-theme.conf || true"
+
+# [[templates]]
+# name = "alacritty"
+# input = "alacritty.toml"
+# output = "~/.config/alacritty/colorice-theme.toml"
+
+# [[templates]]
+# name = "foot"
+# input = "foot.ini"
+# output = "~/.config/foot/colorice-theme.ini"
+
+# [[templates]]
+# name = "ghostty"
+# input = "ghostty"
+# output = "~/.config/ghostty/colorice-colors"
+
+# [[templates]]
+# name = "wezterm"
+# input = "wezterm-colors.lua"
+# output = "~/.config/wezterm/colorice-colors.lua"
+
+# ── Window managers ───────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "hyprland"
+# input = "hyprland-colors.conf"
+# output = "~/.config/hypr/colorice-colors.conf"
+
+[[templates]]
+name = "i3"
+input = "i3-colors.conf"
+output = "~/.config/i3/colorice-colors.conf"
+hook = "pgrep i3 >/dev/null && i3-msg reload || true"
+
+# [[templates]]
+# name = "sway"
+# input = "sway-colors.conf"
+# output = "~/.config/sway/colorice-colors.conf"
+
+# ── Bars ──────────────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "waybar"
+# input = "waybar-colors.css"
+# output = "~/.config/waybar/colorice-colors.css"
+
+[[templates]]
+name = "polybar"
+input = "polybar-colors.ini"
+output = "~/.config/polybar/colorice-colors.ini"
+hook = "pgrep polybar >/dev/null && polybar-msg cmd restart || true"
+
+# ── Compositors ──────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "picom"
+# input = "picom.conf"
+# output = "~/.config/picom.conf"
+# hook = "pkill -q picom; sleep 0.5 && picom --daemon"  # increase sleep on slower machines if picom fails to restart
+
+# ── Notifications ─────────────────────────────────────────────────────────────
+
+[[templates]]
+name = "dunst"
+input = "dunst.conf"
+output = "~/.config/dunst/dunstrc"
+hook = "killall -q dunst || true"
+
+# [[templates]]
+# name = "mako"
+# input = "mako.conf"
+# output = "~/.config/mako/colorice-colors.conf"
+
+# ── Editors ───────────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "neovim"
+# input = "neovim-colors.lua"
+# output = "~/.config/nvim/colors/colorice.lua"
+# hook = "for s in $XDG_RUNTIME_DIR/nvim.*.0; do [ -S \"$s\" ] && nvim --server \"$s\" --remote-send \"<ESC>:colorscheme colorice<CR>\" 2>/dev/null; done; true"
+
+# [[templates]]
+# name = "vim"
+# input = "vim-colors.vim"
+# output = "~/.vim/colors/colorice.vim"
+
+# ── Multiplexers ──────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "zellij"
+# input = "zellij-theme.kdl"
+# output = "~/.config/zellij/themes/colorice.kdl"
+
+# ── Lock screens ──────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "swaylock"
+# input = "swaylock.conf"
+# output = "~/.config/swaylock/colorice-colors.conf"
+
+# ── Audio visualizers ─────────────────────────────────────────────────────────
+
+[[templates]]
+name = "cava"
+input = "cava.conf"
+output = "~/.config/cava/config"
+hook = "pgrep cava >/dev/null && pkill -USR2 cava || true"
+
+# ── Generic ───────────────────────────────────────────────────────────────────
+
+# [[templates]]
+# name = "xresources"
+# input = "xresources"
+# output = "~/.Xresources.d/colorice"
+
+# [[templates]]
+# name = "shell"
+# input = "colors.sh"
+# output = "~/.config/colorice/colors.sh"
+
+[[templates]]
+name = "rofi"
+input = "rofi-colors.rasi"
+output = "~/.config/rofi/colorice-colors.rasi"

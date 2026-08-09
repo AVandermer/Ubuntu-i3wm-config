@@ -3,10 +3,10 @@ configuration {
     font: "UbuntuMono Nerd Font 14";
 }
 
-@theme "~/.cache/wal/rofi-alpha.rasi"
+@theme "~/.config/rofi/colorice-colors.rasi"
 
 window {
-    background-color: @bg;
+    background-color: @background;
     border-radius: 12px;
     padding: 10px;
     border: 0px;
@@ -17,7 +17,7 @@ mainbox, inputbar, listview, element, prompt, entry {
 }
 
 element selected {
-    background-color: @sel;
-    text-color: @bg;
+    background-color: @selected;
+    text-color: @background;
     border-radius: 8px;
 }

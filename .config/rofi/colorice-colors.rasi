@@ -1,0 +1,13 @@
+/* colorice theme — generated from /home/avandermer/Pictures/wallpapers/tennis.png */
+/* Usage: add `@theme "~/.config/rofi/colorice-colors.rasi"` to your rofi theme */
+
+* {
+    /* Берем цвет фона из обоев и делаем его прозрачным (около 80%) */
+    background: #070c11CC;
+    foreground: #e1e3de;
+    selected:   #3780ae;
+    
+    /* Делаем так, чтобы все внутренние элементы не перекрывали фон */
+    background-color: transparent;
+    text-color: @foreground;
+}

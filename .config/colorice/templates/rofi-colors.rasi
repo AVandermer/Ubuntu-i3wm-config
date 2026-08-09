@@ -1,0 +1,13 @@
+/* colorice theme — generated from {wallpaper} */
+/* Usage: add `@theme "~/.config/rofi/colorice-colors.rasi"` to your rofi theme */
+
+* {{
+    /* Берем цвет фона из обоев и делаем его прозрачным (около 80%) */
+    background: {background}CC;
+    foreground: {foreground};
+    selected:   {color2};
+    
+    /* Делаем так, чтобы все внутренние элементы не перекрывали фон */
+    background-color: transparent;
+    text-color: @foreground;
+}}
